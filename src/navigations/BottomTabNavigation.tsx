@@ -1,9 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
-import Home from "../screens/Home";
 import Search from "../screens/Search";
 import Favorite from "../screens/Favorite";
+import HomeStackNavigation from "./HomeStackNavigation"; // Pastikan diimport dengan benar
+import FavoriteStackNavigation from "./FavoriteStackNavigation";
+import KeywordStackNavigation from "./KeywordStackNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +13,7 @@ const BottomTabNavigator = (): JSX.Element => (
   <Tab.Navigator>
     <Tab.Screen
       name="Home"
-      component={Home}
+      component={HomeStackNavigation} // Menggunakan HomeStackNavigation sebagai komponen di tab "Home"
       options={{
         tabBarIcon: ({ color }) => (
           <Feather name="home" size={28} color={color} />
@@ -21,7 +23,7 @@ const BottomTabNavigator = (): JSX.Element => (
     />
     <Tab.Screen
       name="Search"
-      component={Search}
+      component={KeywordStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
           <Feather name="search" size={28} color={color} />
@@ -31,7 +33,7 @@ const BottomTabNavigator = (): JSX.Element => (
     />
     <Tab.Screen
       name="Favorite"
-      component={Favorite}
+      component={FavoriteStackNavigation}
       options={{
         tabBarIcon: ({ color }) => (
           <Feather name="heart" size={28} color={color} />
